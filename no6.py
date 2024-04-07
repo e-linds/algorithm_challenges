@@ -12,6 +12,20 @@ class Node:
         self.next = None
 
 
+def display_list(head):
+    
+        print(head.data)
+        head = head.next
+        if head:    
+            display_list(head)
+
+
+def display_list_2(head):
+
+    while head:
+        print(head.data)
+        head = head.next
+
 
 def solution(head, k, count = 1):
     if head == None:
@@ -20,8 +34,6 @@ def solution(head, k, count = 1):
     if k == 1:
         return None
     
-
-
     elif head.next:
         count = count + 1
         if count == k:
@@ -33,7 +45,31 @@ def solution(head, k, count = 1):
 
 if __name__ == '__main__':
 
-    Node()
+    head = Node(1)
+    current = head
+
+    for each in range(2,11):
+        current.next = Node(each)
+        current = current.next
+    
+
+    display_list_2(head)
+
+
+    
+
+
+
+
+
+        
+
+
+    
+
+
+
+    
 
     
 
