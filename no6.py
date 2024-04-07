@@ -5,17 +5,39 @@
 #this means that we will address the node removal when head.next is the kth element
 #we can move through the linked list and count each move
 
-count = 1
-k = ""
-def solution(head):
+class Node:
+
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+
+def solution(head, k, count = 1):
+    if head == None:
+        return None
+    
     if k == 1:
         return None
+    
+
 
     elif head.next:
         count = count + 1
         if count == k:
-            head.next = head.next.next
+            head = head.next
             count = 1
-        solution(head.next)
+        solution(head.next, k, count)
+
+
+
+if __name__ == '__main__':
+
+    Node()
+
     
+
+    
+
+
         
