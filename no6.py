@@ -28,8 +28,9 @@ def display_list_2(head):
 
 
 def solution(head, k, count = 1):
-    if head == None:
-        return None
+
+    # if head == None:
+    #     return None
     
     if k == 1:
         return None
@@ -39,8 +40,32 @@ def solution(head, k, count = 1):
         if count == k:
             head = head.next
             count = 1
-        solution(head.next, k, count)
+            solution(head, k, count)
+        else:
+            solution(head.next, k, count)
 
+
+    else:
+        print(head)
+        return(head)
+    
+
+def solution_2(head, k):
+    node = head
+
+    count = 1
+
+    if k == 1:
+        return None
+    
+    while node:
+        count = count + 1
+        if count == k:
+            node.next = node.next.next
+            count = 1
+        node = node.next
+
+    return head
 
 
 if __name__ == '__main__':
@@ -48,15 +73,18 @@ if __name__ == '__main__':
     head = Node(1)
     current = head
 
-    for each in range(2,11):
+    for each in range(2,41):
         current.next = Node(each)
         current = current.next
     
 
     display_list_2(head)
+    print("solution:")
+
+    display_list_2(solution_2(head, 5))
 
 
-    
+
 
 
 
