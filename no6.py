@@ -60,7 +60,7 @@ def solution_2(head, k):
     
     while node:
         count = count + 1
-        if count == k:
+        if count == k and node.next:
             node.next = node.next.next
             count = 1
         node = node.next
@@ -73,7 +73,7 @@ if __name__ == '__main__':
     head = Node(1)
     current = head
 
-    for each in range(2,41):
+    for each in range(2,39):
         current.next = Node(each)
         current = current.next
     
