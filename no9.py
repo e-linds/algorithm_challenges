@@ -8,6 +8,8 @@
 #Input: seats = [1,0,0,0,1,0,1]
 #Output: 2
 
+import math
+
 def find_seat(seats):
     seat_options = []
     index = -1
@@ -20,18 +22,24 @@ def find_seat(seats):
             count = count + 1
             chosen_seat = [index, count]
             seat_options.append(chosen_seat)
-            print(chosen_seat)
         else:
             chosen_seat = [0,0]
             count = 0
 
-    print(seat_options)
+    #current high[0] will reflect the index of the last empty chair of the longest row of empties
     current_high = [0,0]
     for each in seat_options:
         if each[1] > current_high[1]:
             current_high = each
+    #to return the max distance, we take current_high[1], divide by two, and round up
+    max_distance = math.ceil(current_high[1] / 2)
+    print(max_distance)
     print(current_high)
-    return current_high
+    return max_distance
 
-example = [0,1,0,1,0,0,0,0,0,1,0,0,0,1]
+#I think there's an issue with the index lining up with the actual number of empty seats...
+    
+
+example = [0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1]
 find_seat(example)
+
