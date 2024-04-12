@@ -1,4 +1,3 @@
-# IN PROGRESS
 #You are given an array representing a row of seats where seats[i] = 1 represents a person sitting in the ith seat, and seats[i] = 0 represents that the ith seat is empty (0-indexed).
 #There is at least one empty seat, and at least one person sitting.
 #Alex wants to sit in the seat such that the distance between him and the closest person to him is maximized. 
@@ -33,13 +32,6 @@ def find_seat(seats):
             current_high = each
     #to return the max distance, we take current_high[1], divide by two, and round up
     max_distance = math.ceil(current_high[1] / 2)
-    print(max_distance)
-    print(current_high)
     return max_distance
-
-#I think there's an issue with the index lining up with the actual number of empty seats...
     
-
-example = [0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1]
-find_seat(example)
 
